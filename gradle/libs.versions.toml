@@ -33,6 +33,7 @@ androidx-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-viewmodel = {module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref="viewModelVersion" }
+lifecycle-viewmodel = {module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref="viewModelVersion" }
 androidx-compose-integration-constraintLayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "compose-integration-constraintlayout" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 
