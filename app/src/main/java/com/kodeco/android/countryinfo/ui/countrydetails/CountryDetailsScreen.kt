@@ -38,8 +38,6 @@ fun CountryDetailsScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        // TODO: Remove as Flows is no longer necessary.
-                        Flows.tapBack()
                         onNavigateUp()
                     }) {
                         Icon(

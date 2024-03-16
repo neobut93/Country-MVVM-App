@@ -41,7 +41,10 @@ fun CountryInfoScreen(
             is CountryInfoState.Loading -> Loading()
             is CountryInfoState.Success -> CountryInfoList(
                 countries = countryInfoState.countries,
-                {})
+                onRefreshClick = viewModel::fetchCountries,
+                viewModel = viewModel
+            )
+
             is CountryInfoState.Error -> Error(error = countryInfoState.error) {
 
             }

@@ -13,12 +13,8 @@ import kotlinx.coroutines.launch
 @OptIn(DelicateCoroutinesApi::class)
 object Flows {
     private val _counterFlow: MutableStateFlow<Int> = MutableStateFlow(0)
-    private val _tapFlow: MutableStateFlow<Int> = MutableStateFlow(0)
-    private val _backFlow: MutableStateFlow<Int> = MutableStateFlow(0)
 
     val counterFlow: StateFlow<Int> = _counterFlow
-    val tapFlow: StateFlow<Int> = _tapFlow
-    val backFlow: StateFlow<Int> = _backFlow
 
     init {
         GlobalScope.launch {
@@ -27,14 +23,6 @@ object Flows {
                 increment()
             }
         }
-    }
-
-    fun tap() {
-        _tapFlow.value += 1
-    }
-
-    fun tapBack() {
-        _backFlow.value += 1
     }
 
     private fun increment() {

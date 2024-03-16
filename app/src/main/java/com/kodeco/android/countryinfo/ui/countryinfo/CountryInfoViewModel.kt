@@ -1,5 +1,6 @@
 package com.kodeco.android.countryinfo.ui.countryinfo
 
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -26,6 +27,16 @@ class CountryInfoViewModel(private val repository: CountryRepository) : ViewMode
                     _uiState.value = CountryInfoState.Success(list)
                 }
         }
+    }
+
+    var countryRowCounter = mutableIntStateOf(0)
+    fun incrementCountryRowCounter() {
+        countryRowCounter.intValue++
+    }
+
+    var backCounter = mutableIntStateOf(0)
+    fun incrementBackCounter() {
+        backCounter.intValue++
     }
 
     //move away from init block
