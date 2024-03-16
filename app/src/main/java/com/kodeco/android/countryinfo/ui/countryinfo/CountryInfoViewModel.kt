@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.kodeco.android.countryinfo.repositories.CountryRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -39,7 +40,21 @@ class CountryInfoViewModel(private val repository: CountryRepository) : ViewMode
         backCounter.intValue++
     }
 
-    //move away from init block
+    var counter = mutableIntStateOf(0)
+    fun incrementCounter() {
+        counter.intValue++
+    }
+
+    init {
+        viewModelScope.launch {
+            while (true) {
+                delay(1_000L)
+                incrementCounter()
+            }
+        }
+    }
+
+    //todo move away from init block
     init {
         fetchCountries()
     }

@@ -3,11 +3,8 @@ package com.kodeco.android.countryinfo.repositories
 import com.kodeco.android.countryinfo.models.Country
 import com.kodeco.android.countryinfo.models.CountryName
 import com.kodeco.android.countryinfo.network.CountryService
-import com.kodeco.android.countryinfo.ui.countryinfo.CountryInfoState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOf
-import retrofit2.Response
 
 class CountryRepositoryImpl(private val service: CountryService) : CountryRepository {
 
