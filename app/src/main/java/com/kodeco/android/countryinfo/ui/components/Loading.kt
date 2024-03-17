@@ -29,5 +29,4 @@ fun Loading(
 @Preview
 @Composable
 fun LoadingPreview() {
-    //Loading()
 }

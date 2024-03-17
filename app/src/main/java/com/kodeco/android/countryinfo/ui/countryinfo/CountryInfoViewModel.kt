@@ -54,7 +54,6 @@ class CountryInfoViewModel(private val repository: CountryRepository) : ViewMode
         }
     }
 
-    //todo move away from init block
     init {
         fetchCountries()
     }
