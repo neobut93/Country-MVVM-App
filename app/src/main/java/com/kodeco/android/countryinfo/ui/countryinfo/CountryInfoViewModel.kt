@@ -46,16 +46,13 @@ class CountryInfoViewModel(private val repository: CountryRepository) : ViewMode
     }
 
     init {
+        fetchCountries()
         viewModelScope.launch {
             while (true) {
                 delay(1_000L)
                 incrementCounter()
             }
         }
-    }
-
-    init {
-        fetchCountries()
     }
 }
 
