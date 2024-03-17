@@ -23,37 +23,29 @@ fun CountryInfoScreen(
     viewModel: CountryInfoViewModel
 ) {
     val state = viewModel.uiState.collectAsState()
+
     Surface {
         when (val countryInfoState = state.value) {
             is CountryInfoState.Loading -> Loading(
                 viewModel = viewModel
             )
+
             is CountryInfoState.Success -> CountryInfoList(
                 countries = countryInfoState.countries,
-
-                //todo solve issue with refresh
-                onRefreshClick = viewModel::fetchCountries,
-                viewModel = viewModel
+                onRefreshClick = {
+                   viewModel.fetchCountries()
+                },
+                viewModel = viewModel,
             )
 
             is CountryInfoState.Error -> Error(error = countryInfoState.error) {
 
             }
-
         }
     }
 }
 
-// TODO: Move this logic in to the viewmodel.
-
-
 @Preview
 @Composable
 fun CountryInfoScreenPreview() {
-//    CountryInfoScreen(
-//        service = object : CountryService {
-//            override suspend fun getAllCountries(): Response<List<Country>> =
-//                Response.success(sampleCountries)
-//        },
-//    )
 }

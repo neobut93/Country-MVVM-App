@@ -8,7 +8,6 @@ import com.kodeco.android.countryinfo.repositories.CountryRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
@@ -16,18 +15,19 @@ class CountryInfoViewModel(private val repository: CountryRepository) : ViewMode
 
     private val _uiState: MutableStateFlow<CountryInfoState> =
         MutableStateFlow(CountryInfoState.Loading)
-    val uiState: StateFlow<CountryInfoState> = _uiState.asStateFlow()
+    val uiState: StateFlow<CountryInfoState> = _uiState
 
     fun fetchCountries() {
         viewModelScope.launch {
-            repository.fetchCountries()
-                .catch { error ->
-                    _uiState.value = CountryInfoState.Error(error)
-                }
-                .collect { list ->
-                    _uiState.value = CountryInfoState.Success(list)
-                }
-        }
+            _uiState.value = CountryInfoState.Loading
+                repository.fetchCountries()
+                    .catch { error ->
+                        _uiState.value = CountryInfoState.Error(error)
+                    }
+                    .collect { list ->
+                        _uiState.value = CountryInfoState.Success(list)
+                    }
+            }
     }
 
     var countryRowCounter = mutableIntStateOf(0)
@@ -41,7 +41,7 @@ class CountryInfoViewModel(private val repository: CountryRepository) : ViewMode
     }
 
     var counter = mutableIntStateOf(0)
-    fun incrementCounter() {
+    private fun incrementCounter() {
         counter.intValue++
     }
 

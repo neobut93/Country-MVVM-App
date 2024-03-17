@@ -56,7 +56,6 @@ fun CountryInfoList(
         selectedCountry?.let { country ->
             CountryDetailsScreen(country) {
                 selectedCountry = null
-                // TODO: Make sure to increment backCounter.value
                 viewModel.incrementBackCounter()
 
             }
@@ -65,7 +64,6 @@ fun CountryInfoList(
                 items(countries) { country ->
                     CountryInfoRow(country) {
                         selectedCountry = country
-                        // TODO: Replace with an increment of tapCounter.value
                         viewModel.incrementCountryRowCounter()
                     }
                 }
@@ -77,8 +75,4 @@ fun CountryInfoList(
 @Preview
 @Composable
 fun CountryInfoListPreview() {
-//    CountryInfoList(
-//        countries = sampleCountries,
-//        onRefreshClick = {},
-//    )
 }
