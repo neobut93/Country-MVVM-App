@@ -20,14 +20,14 @@ class CountryInfoViewModel(private val repository: CountryRepository) : ViewMode
     fun fetchCountries() {
         viewModelScope.launch {
             _uiState.value = CountryInfoState.Loading
-                repository.fetchCountries()
-                    .catch { error ->
-                        _uiState.value = CountryInfoState.Error(error)
-                    }
-                    .collect { list ->
-                        _uiState.value = CountryInfoState.Success(list)
-                    }
-            }
+            repository.fetchCountries()
+                .catch { error ->
+                    _uiState.value = CountryInfoState.Error(error)
+                }
+                .collect { list ->
+                    _uiState.value = CountryInfoState.Success(list)
+                }
+        }
     }
 
     var countryRowCounter = mutableIntStateOf(0)
@@ -62,6 +62,3 @@ class Factory(private val repository: CountryRepository) :
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         CountryInfoViewModel(repository) as T
 }
-
-
-

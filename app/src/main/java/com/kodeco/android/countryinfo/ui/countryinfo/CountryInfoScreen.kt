@@ -33,7 +33,7 @@ fun CountryInfoScreen(
             is CountryInfoState.Success -> CountryInfoList(
                 countries = countryInfoState.countries,
                 onRefreshClick = {
-                   viewModel.fetchCountries()
+                    viewModel.fetchCountries()
                 },
                 viewModel = viewModel,
             )

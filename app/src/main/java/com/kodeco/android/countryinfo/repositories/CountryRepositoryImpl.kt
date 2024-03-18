@@ -12,7 +12,7 @@ class CountryRepositoryImpl(private val service: CountryService) : CountryReposi
 
     override fun fetchCountries(): Flow<List<Country>> = flow {
         val countriesResponse = service.getAllCountries()
-        val countryList: List<Country>  = if (countriesResponse.isSuccessful) {
+        val countryList: List<Country> = if (countriesResponse.isSuccessful) {
             countriesResponse.body()!!
         } else {
             countries
@@ -23,7 +23,7 @@ class CountryRepositoryImpl(private val service: CountryService) : CountryReposi
     override fun getCountry(name: CountryName): Country? {
         lateinit var country: Country
         for (i in 0..countries.lastIndex) {
-            if (countries[i].commonName==name.toString()) {
+            if (countries[i].commonName == name.toString()) {
                 country = countries[i]
             }
         }

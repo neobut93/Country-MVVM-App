@@ -78,8 +78,6 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.lifecycle.viewmodel)
 
-
-
     ksp (libs.moshiCodeGen)
 
     testImplementation(libs.junit)

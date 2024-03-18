@@ -52,7 +52,7 @@ fun CountryDetailsScreen(
             item { Text(text = "Capital: ${country.mainCapital}") }
             item { Text(text = "Population: ${country.population}") }
             item { Text(text = "Area: ${country.area}") }
-            item { 
+            item {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
                         .data(country.flagUrl)
