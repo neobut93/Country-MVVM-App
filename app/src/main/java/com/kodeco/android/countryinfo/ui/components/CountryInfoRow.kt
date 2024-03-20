@@ -11,8 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kodeco.android.countryinfo.models.Country
-import com.kodeco.android.countryinfo.models.CountryFlags
-import com.kodeco.android.countryinfo.models.CountryName
 import com.kodeco.android.countryinfo.sample.sampleCountry
 
 @OptIn(ExperimentalMaterial3Api::class)

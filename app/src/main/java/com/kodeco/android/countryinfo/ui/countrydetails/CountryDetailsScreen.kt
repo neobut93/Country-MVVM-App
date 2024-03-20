@@ -1,4 +1,4 @@
-package com.kodeco.android.countryinfo.ui.components
+package com.kodeco.android.countryinfo.ui.countrydetails
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
@@ -20,7 +20,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.kodeco.android.countryinfo.flow.Flows
 import com.kodeco.android.countryinfo.models.Country
 import com.kodeco.android.countryinfo.sample.sampleCountry
 
@@ -38,8 +37,6 @@ fun CountryDetailsScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        // TODO: Remove as Flows is no longer necessary.
-                        Flows.tapBack()
                         onNavigateUp()
                     }) {
                         Icon(
@@ -55,7 +52,7 @@ fun CountryDetailsScreen(
             item { Text(text = "Capital: ${country.mainCapital}") }
             item { Text(text = "Population: ${country.population}") }
             item { Text(text = "Area: ${country.area}") }
-            item { 
+            item {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
                         .data(country.flagUrl)
